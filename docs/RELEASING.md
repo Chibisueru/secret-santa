@@ -5,8 +5,8 @@
 The app version is defined in **one place**, [`gradle.properties`](../gradle.properties):
 
 ```properties
-app.versionName=0.1.0-alpha.1
-app.versionCode=3
+app.versionName=1.0.0
+app.versionCode=4
 ```
 
 ### `versionName`: what people see
@@ -15,18 +15,20 @@ Uses [Semantic Versioning](https://semver.org): `MAJOR.MINOR.PATCH`, with an opt
 
 | Part | Increase when… |
 | --- | --- |
-| `MAJOR` | A change breaks existing use, e.g. data that can't be migrated. Stays `0` until the first stable release. |
+| `MAJOR` | A change breaks existing use, e.g. data that can't be migrated. |
 | `MINOR` | New features are added. |
 | `PATCH` | Only bugs are fixed. |
-| `-alpha.N` | Early testing. Features may change and data may not survive an update. |
+| `-alpha.N` | Early testing of a future version. Features may still change. |
 | `-beta.N` | Feature-complete, being tested. Updates keep data. |
 | `-rc.N` | Release candidate: becomes the stable release unless a bug turns up. |
 
-The typical path to the first stable release:
+Most releases are plain versions (`1.0.1` for fixes, `1.1.0` for features). Pre-release suffixes are optional and only needed when a bigger version should be tested before it ships:
 
 ```
-0.1.0-alpha.1 → 0.1.0-alpha.2 → … → 0.2.0-alpha.1 → … → 1.0.0-beta.1 → 1.0.0-rc.1 → 1.0.0
+1.0.0 → 1.0.1 → 1.1.0 → 2.0.0-beta.1 → 2.0.0-rc.1 → 2.0.0
 ```
+
+Since 1.0.0, every update must keep users' data: any schema change needs a migration (see [ARCHITECTURE.md](ARCHITECTURE.md#schema-changes)).
 
 ### `versionCode`: what Android compares
 
@@ -36,6 +38,7 @@ A whole number that **must increase for every APK you publish**. Android refuses
 | --- | --- |
 | (test builds) | 1–2 |
 | 0.1.0-alpha.1 | 3 |
+| 1.0.0 | 4 |
 
 Debug builds add `-debug` to the name and `.debug` to the app ID, so they install next to the released app.
 
@@ -77,7 +80,7 @@ Check an APK with `apksigner verify --print-certs SecretSanta-<version>.apk`.
 1. Make sure `main` is green in CI.
 2. Update `app.versionName` and increase `app.versionCode` in `gradle.properties`.
 3. Move the `[Unreleased]` changelog entries into a new version section and update the links.
-4. Commit: `git commit -am "Release 0.1.0-alpha.2"` and `git push`.
+4. Commit: `git commit -am "Release 1.0.1"` and `git push`.
 5. Build and publish:
 
    ```bash
@@ -94,5 +97,5 @@ Each release includes `SecretSanta-<version>.apk` and `SecretSanta-<version>.apk
 ## Tags and branches
 
 - `main` is always releasable; CI runs on every push and pull request.
-- Each release is an annotated tag `v<versionName>`, e.g. `v0.1.0-alpha.1`.
+- Each release is an annotated tag `v<versionName>`, e.g. `v1.0.0`.
 - Larger work happens on branches (`feature/…`, `fix/…`) and is merged with a pull request.

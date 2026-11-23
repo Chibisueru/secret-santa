@@ -15,7 +15,7 @@ labels: bug
 **What did you expect to happen?**
 
 **App version**
-<!-- Settings → About, e.g. 0.1.0-alpha.1 (3) -->
+<!-- Settings → About, e.g. 1.0.0 (4) -->
 
 **Phone and Android version**
 <!-- e.g. Pixel 8, Android 16 -->

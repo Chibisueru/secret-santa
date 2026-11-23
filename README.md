@@ -1,13 +1,12 @@
 # Secret Santa 🎅
 
 [![CI](https://github.com/Chibisueru/secret-santa/actions/workflows/ci.yml/badge.svg)](https://github.com/Chibisueru/secret-santa/actions/workflows/ci.yml)
-[![Latest release](https://img.shields.io/github/v/release/Chibisueru/secret-santa?include_prereleases&label=release)](https://github.com/Chibisueru/secret-santa/releases)
+[![Latest release](https://img.shields.io/github/v/release/Chibisueru/secret-santa?label=release)](https://github.com/Chibisueru/secret-santa/releases)
 [![License: GPL v3](https://img.shields.io/badge/license-GPLv3-blue.svg)](LICENSE)
 
 An offline Android app for organizing Secret Santa gift exchanges. Add people, set rules, draw names, and send everyone their match by SMS, email or any messaging app. The recipient's name is encoded, so even the person sending the messages doesn't see who has whom.
 
-> [!WARNING]
-> **This is alpha software.** It works, but expect rough edges. The data format may still change, and updates are not yet guaranteed to keep your groups. Please [report anything that goes wrong](https://github.com/Chibisueru/secret-santa/issues).
+Found a bug or have an idea? Please [open an issue](https://github.com/Chibisueru/secret-santa/issues/new/choose).
 
 ## Features
 
